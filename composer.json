@@ -1,5 +1,5 @@
 {
-    "name": "knplabs/friendly-contexts",
+    "name": "guy-fawkes/friendly-contexts",
     "description": "Some BEHAT contexts",
     "autoload": {
         "psr-0": { "Knp\\FriendlyContexts": "src/"}
@@ -39,8 +39,15 @@
         {
             "name": "Pedrotroller",
             "homepage": "https://github.com/PedroTroller"
+        },
+        {
+            "name": "Dan Kempster",
+            "homepage": "https://github.com/dankempster"
         }
     ],
+    "replace": {
+        "knplabs/friendly-contexts": "self.version"
+    },
     "config": {
         "bin-dir": "bin"
     }
