@@ -139,7 +139,7 @@ Feature: Entity Context
       {
         public function indexAction()
         {
-          $em = $this->container->get('doctrine')->getEntityManager();
+          $em = $this->container->get('doctrine')->getManager();
           $userRepo = $em->getRepository(User::class);
           $productRepo = $em->getRepository(Product::class);
           return $this->render('@KnpFcTest/Default/index.html.twig', array(
