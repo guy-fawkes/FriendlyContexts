@@ -126,7 +126,7 @@ Feature: Alice Context
         public function indexAction()
         {
           return $this->render('@KnpFcTest/Default/index.html.twig', array(
-            'users' => $this->container->get('doctrine')->getEntityManager()->getRepository(User::class)->findBy(array()),
+            'users' => $this->container->get('doctrine')->getManager()->getRepository(User::class)->findBy(array()),
           ));
         }
       }
@@ -191,7 +191,7 @@ Feature: Alice Context
         public function indexAction()
         {
           return $this->render('@KnpFcTest/Default/index.html.twig', array(
-            'products' => $this->container->get('doctrine')->getEntityManager()->getRepository(Product::class)->findBy(array()),
+            'products' => $this->container->get('doctrine')->getManager()->getRepository(Product::class)->findBy(array()),
           ));
         }
       }
@@ -253,7 +253,7 @@ Feature: Alice Context
       {
         public function indexAction()
         {
-          $em = $this->container->get('doctrine')->getEntityManager();
+          $em = $this->container->get('doctrine')->getManager();
           return $this->render('@KnpFcTest/Default/index.html.twig', array(
             'users' => $em->getRepository(User::class)->findBy(array()),
             'products' => $em->getRepository(Product::class)->findBy(array()),
@@ -396,7 +396,7 @@ Feature: Alice Context
       {
         public function indexAction(Request $request)
         {
-          $em = $this->container->get('doctrine')->getEntityManager();
+          $em = $this->container->get('doctrine')->getManager();
           $repo = $em->getRepository(User::class);
 
           if ($request->query->has('userid')) {
@@ -412,7 +412,7 @@ Feature: Alice Context
           }
 
           return $this->render('@KnpFcTest/Default/index.html.twig', array(
-            'users' => $this->container->get('doctrine')->getEntityManager()->getRepository(User::class)->findBy(array()),
+            'users' => $this->container->get('doctrine')->getManager()->getRepository(User::class)->findBy(array()),
           ));
         }
       }
