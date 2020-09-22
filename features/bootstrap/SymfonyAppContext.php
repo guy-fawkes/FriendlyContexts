@@ -36,6 +36,7 @@ class SymfonyAppContext extends AbstractContext
     {
         $bundlePath = self::$PARAMETERS['%working_dir%'] . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "Knp" . DIRECTORY_SEPARATOR . "FcTestBundle";
         self::$filesystem->remove(array(
+            self::$PARAMETERS['%working_dir%'] . DIRECTORY_SEPARATOR . "app" . DIRECTORY_SEPARATOR . "cache",
             self::$PARAMETERS['%working_dir%'] . DIRECTORY_SEPARATOR . "features" . DIRECTORY_SEPARATOR . "fixtures",
             $bundlePath . DIRECTORY_SEPARATOR . "Controller",
             $bundlePath . DIRECTORY_SEPARATOR . "Entity",
