@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
+- Support Symfony 3
 
 ### Removed
 - Support for PHP <=5.5
