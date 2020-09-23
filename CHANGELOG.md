@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
+
+### Fixed
+
+## [0.9.0] - 2020-09-23
+
+### Added
 - Support Symfony 3
 
 ### Removed
