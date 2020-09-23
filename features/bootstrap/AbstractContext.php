@@ -212,10 +212,7 @@ class AbstractContext implements Context
      */
     public function theOutputShouldContain(PyStringNode $text)
     {
-        PHPUnit_Framework_Assert::assertContains(
-            $this->getExpectedOutput($text),
-            $this->getOutput()
-        );
+        expect($this->getOutput())->shouldContain($this->getExpectedOutput($text));
     }
 
     /**
@@ -232,13 +229,13 @@ class AbstractContext implements Context
                 echo 'Actual output:' . PHP_EOL . PHP_EOL . $this->getOutput();
             }
 
-            PHPUnit_Framework_Assert::assertGreaterThan(0, $this->getExitCode());
+            expect($this->getExitCode())->toBeGreaterThan(0);
         } else {
             if (0 !== $this->getExitCode()) {
                 echo 'Actual output:' . PHP_EOL . PHP_EOL . $this->getOutput();
             }
 
-            PHPUnit_Framework_Assert::assertSame(0, $this->getExitCode());
+            expect($this->getExitCode())->toBe(0);
         }
     }
 
