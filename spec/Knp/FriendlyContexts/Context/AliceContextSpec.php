@@ -9,7 +9,7 @@ use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\Common\Persistence\Mapping\ClassMetadata;
 use Doctrine\Common\Persistence\Mapping\ClassMetadataFactory;
 use Doctrine\Common\Persistence\ObjectManager;
-use Knp\FriendlyContexts\Alice\Fixtures\Loader;
+use Knp\FriendlyContexts\Alice\Fixtures\Loader as AliceLoader;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -21,7 +21,7 @@ class AliceContextSpec extends ObjectBehavior
         ManagerRegistry $doctrine,
         ObjectManager $manager,
         ScenarioScope $event,
-        Loader $loader,
+        AliceLoader $loader,
         FeatureNode $feature,
         ScenarioNode $scenario,
         ClassMetadataFactory $metadataFactory,

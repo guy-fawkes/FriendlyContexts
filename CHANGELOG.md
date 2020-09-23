@@ -7,7 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Added
 
-### Fixed
+### Removed
+
+## [0.10.0] - 2020-09-23
+### Added
+- Add Support for PHP >=7.0,<7.5
+- Add Support for Alice v3
+- Add Support for Symfony 4
+
+### Removed
+- Dropped support for PHP 5.6
 
 ## [0.9.0] - 2020-09-23
 

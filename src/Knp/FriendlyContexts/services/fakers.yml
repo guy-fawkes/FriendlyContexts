@@ -2,6 +2,7 @@ services:
 
     friendly.faker.address:
         class: Knp\FriendlyContexts\Faker\Provider\Address
+        public: true
         arguments:
             - "@friendly.faker"
         tags:
@@ -10,6 +11,7 @@ services:
 
     friendly.faker.color:
         class: Knp\FriendlyContexts\Faker\Provider\Color
+        public: true
         arguments:
             - "@friendly.faker"
         tags:
@@ -18,6 +20,7 @@ services:
 
     friendly.faker.company:
         class: Knp\FriendlyContexts\Faker\Provider\Company
+        public: true
         arguments:
             - "@friendly.faker"
         tags:
@@ -26,6 +29,7 @@ services:
 
     friendly.faker.datetime:
         class: Knp\FriendlyContexts\Faker\Provider\DateTime
+        public: true
         arguments:
             - "@friendly.faker"
         tags:
@@ -33,6 +37,7 @@ services:
 
     friendly.faker.file:
         class: Knp\FriendlyContexts\Faker\Provider\File
+        public: true
         arguments:
             - "@friendly.faker"
         tags:
@@ -41,6 +46,7 @@ services:
 
     friendly.faker.internet:
         class: Knp\FriendlyContexts\Faker\Provider\Internet
+        public: true
         arguments:
             - "@friendly.faker"
         tags:
@@ -49,6 +55,7 @@ services:
 
     friendly.faker.lorem:
         class: Knp\FriendlyContexts\Faker\Provider\Lorem
+        public: true
         arguments:
             - "@friendly.faker"
         tags:
@@ -57,6 +64,7 @@ services:
 
     friendly.faker.miscellaneous:
         class: Knp\FriendlyContexts\Faker\Provider\Miscellaneous
+        public: true
         arguments:
             - "@friendly.faker"
         tags:
@@ -69,6 +77,7 @@ services:
 
     friendly.faker.payment:
         class: Knp\FriendlyContexts\Faker\Provider\Payment
+        public: true
         arguments:
             - "@friendly.faker"
         tags:
@@ -77,6 +86,7 @@ services:
 
     friendly.faker.person:
         class: Knp\FriendlyContexts\Faker\Provider\Person
+        public: true
         arguments:
             - "@friendly.faker"
         tags:
@@ -85,6 +95,7 @@ services:
 
     friendly.faker.phonenumber:
         class: Knp\FriendlyContexts\Faker\Provider\PhoneNumber
+        public: true
         arguments:
             - "@friendly.faker"
         tags:
@@ -93,6 +104,7 @@ services:
 
     friendly.faker.useragent:
         class: Knp\FriendlyContexts\Faker\Provider\UserAgent
+        public: true
         arguments:
             - "@friendly.faker"
         tags:
@@ -101,6 +113,7 @@ services:
 
     friendly.faker.uuid:
         class: Knp\FriendlyContexts\Faker\Provider\Uuid
+        public: true
         arguments:
             - "@friendly.faker"
         tags:

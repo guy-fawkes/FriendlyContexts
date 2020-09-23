@@ -12,3 +12,5 @@ testapp/src/Knp/FcTestBundle/Controller
 testapp/src/Knp/FcTestBundle/Entity
 testapp/src/Knp/FcTestBundle/Features
 testapp/src/Knp/FcTestBundle/Resources
+testapp/var
+/var/
