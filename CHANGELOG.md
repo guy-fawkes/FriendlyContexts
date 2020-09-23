@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 - Dropped support for PHP 7.0
+- Dropped support for Symfony <3.4
 
 ## [0.10.0] - 2020-09-23
 ### Added
