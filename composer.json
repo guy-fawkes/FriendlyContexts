@@ -16,7 +16,7 @@
         "guzzle/guzzle": "~3.7"
     },
     "require-dev": {
-        "phpspec/phpspec": "~2.4",
+        "phpspec/phpspec": "~3.4",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/orm": "~2.5",
         "symfony/filesystem": "~2.8",
