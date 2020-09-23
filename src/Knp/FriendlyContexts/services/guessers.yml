@@ -2,41 +2,49 @@ services:
 
     friendly.guesser.boolean:
         class: Knp\FriendlyContexts\Guesser\BooleanGuesser
+        public: true
         tags:
             - { name: friendly.format.guesser }
 
     friendly.guesser.smallint:
         class: Knp\FriendlyContexts\Guesser\SmallintGuesser
+        public: true
         tags:
             - { name: friendly.format.guesser }
 
     friendly.guesser.bigint:
         class: Knp\FriendlyContexts\Guesser\BigintGuesser
+        public: true
         tags:
             - { name: friendly.format.guesser }
 
     friendly.guesser.int:
         class: Knp\FriendlyContexts\Guesser\IntGuesser
+        public: true
         tags:
             - { name: friendly.format.guesser }
 
     friendly.guesser.decimal:
         class: Knp\FriendlyContexts\Guesser\DecimalGuesser
+        public: true
         tags:
             - { name: friendly.format.guesser }
 
     friendly.guesser.datetime:
         class: Knp\FriendlyContexts\Guesser\DatetimeGuesser
+        public: true
         tags:
             - { name: friendly.format.guesser }
 
     friendly.guesser.string:
         class: Knp\FriendlyContexts\Guesser\StringGuesser
+        public: true
         tags:
             - { name: friendly.format.guesser }
 
     friendly.guesser.entity:
         class: Knp\FriendlyContexts\Guesser\EntityGuesser
+        public: true
         arguments:
             - "@friendly.record.bag"
         tags:
