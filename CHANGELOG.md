@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Added
 
+### Changed
+- `ObjectManager` was dropped from the following method signatures:
+   - `Knp\FriendlyContexts\Doctrine\EntityHydrator::hydrate()`
+   - `Knp\FriendlyContexts\Doctrine\EntityHydrator::completeRequired()`
+   - `Knp\FriendlyContexts\Doctrine\EntityHydrator::completeFields()`
+   - `Knp\FriendlyContexts\Doctrine\EntityResolver::resolve()`
+   - `Knp\FriendlyContexts\Doctrine\EntityResolver::getClassesFromName()`
+   - `Knp\FriendlyContexts\Doctrine\EntityResolver::getMetadataFromProperty()`
+   - `Knp\FriendlyContexts\Doctrine\EntityResolver::getMetadataFromObject()`
+
 ### Removed
 - Dropped support for PHP 7.0
 

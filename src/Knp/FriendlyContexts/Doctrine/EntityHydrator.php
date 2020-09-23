@@ -3,9 +3,10 @@
 namespace Knp\FriendlyContexts\Doctrine;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Common\Persistence\ObjectManager as CommonObjectManager;
 use Doctrine\DBAL\Types\Type as DBALType;
 use Doctrine\ORM\Mapping\ClassMetadata;
+use Doctrine\Persistence\ObjectManager;
 use Knp\FriendlyContexts\Guesser\GuesserManager;
 use Knp\FriendlyContexts\Utils\TextFormater;
 use Knp\FriendlyContexts\Utils\UniqueCache;
@@ -21,7 +22,14 @@ class EntityHydrator
         $this->cache          = $cache;
     }
 
-    public function hydrate(ObjectManager $em, $entity, $values)
+    /**
+     * @param CommonObjectManager|ObjectManager $em
+     * @param object $entity
+     * @param array $values
+     * @return self
+     * @throws \Exception
+     */
+    public function hydrate($em, $entity, $values)
     {
         foreach ($values as $property => $value) {
             if (false !== $mapping = $this->resolver->getMetadataFromProperty($em, $entity, $property)) {
@@ -54,12 +62,21 @@ class EntityHydrator
         return $this;
     }
 
-    public function completeRequired(ObjectManager $em, $entity)
+    /**
+     * @param CommonObjectManager|ObjectManager $em
+     * @param object $entity
+     */
+    public function completeRequired($em, $entity)
     {
         $this->completeFields($em, $entity);
     }
 
-    public function completeFields(ObjectManager $em, $entity)
+    /**
+     * @param CommonObjectManager|ObjectManager $em
+     * @param object $entity
+     * @return self
+     */
+    public function completeFields($em, $entity)
     {
         $accessor = PropertyAccess::createPropertyAccessor();
 
