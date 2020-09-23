@@ -63,7 +63,7 @@ Feature: Page Context
           Given I am on the plop page
           Then I should see "Plop"
       """
-    When I run "behat --no-colors -f progress"
+    When I run "behat --no-colors --format=progress"
     Then it should pass with:
       """
       ..
@@ -112,7 +112,7 @@ Feature: Page Context
             | argument2 | bar |
           Then I should see "Bar"
       """
-    When I run "behat --no-colors -f progress"
+    When I run "behat --no-colors --format=progress"
     Then it should pass with:
       """
       ..

@@ -47,7 +47,7 @@ Feature: Mink Context
           When I press the "foo" link
           Then I should see "World"
       """
-    When I run "behat --no-colors -f progress"
+    When I run "behat --no-colors --format=progress"
     Then it should pass with:
       """
       ...
@@ -99,7 +99,7 @@ Feature: Mink Context
           When I follow the 3rd "foo" link
           Then I should see "World"
       """
-    When I run "behat --no-colors -f progress"
+    When I run "behat --no-colors --format=progress"
     Then it should pass with:
       """
       ...
@@ -163,7 +163,7 @@ Feature: Mink Context
           Then I should see "Hello"
           And I should see "World"
       """
-    When I run "behat --no-colors -f progress"
+    When I run "behat --no-colors --format=progress"
     Then it should pass with:
       """
       ......
@@ -235,7 +235,7 @@ Feature: Mink Context
           Then I should see "q1_fish : on"
           And I should see "q2_pizza : on"
       """
-    When I run "behat --no-colors -f progress"
+    When I run "behat --no-colors --format=progress"
     Then it should pass with:
       """
       ......
@@ -303,7 +303,7 @@ Feature: Mink Context
           Then I should see "hello : yes"
           And I should see "world : yes"
       """
-    When I run "behat --no-colors -f progress"
+    When I run "behat --no-colors --format=progress"
     Then it should pass with:
       """
       ......
@@ -349,7 +349,7 @@ Feature: Mink Context
           Given I am on the homepage
           Then I should see 3 "World" button
       """
-    When I run "behat --no-colors -f progress"
+    When I run "behat --no-colors --format=progress"
     Then it should pass with:
       """
       ..
@@ -396,7 +396,7 @@ Feature: Mink Context
           And I should not see a "Agree" button
           And I should not see a "Agree" radio
       """
-    When I run "behat --no-colors -f progress"
+    When I run "behat --no-colors --format=progress"
     Then it should pass with:
       """
       ....

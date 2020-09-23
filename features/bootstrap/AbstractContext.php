@@ -2,6 +2,7 @@
 
 use Behat\Behat\Context\Context;
 use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Process\PhpExecutableFinder;
 use Symfony\Component\Process\Process;
 use Behat\Gherkin\Node\PyStringNode;
@@ -50,15 +51,6 @@ class AbstractContext implements Context
             throw new RuntimeException('Unable to find the PHP executable. The testsuite cannot run.');
         }
         $this->phpBin = $php;
-    }
-
-    /**
-     * @BeforeScenario
-     */
-    public function prepareBehatProcess()
-    {
-        $this->behatProcess = new Process(null);
-        $this->behatProcess->setTimeout($this->behatProcessTimeout);
     }
 
     /**
@@ -171,14 +163,30 @@ class AbstractContext implements Context
     {
         $argumentsString = strtr($argumentsString, array('\'' => '"'));
 
-        $this->behatProcess->setWorkingDirectory(self::$PARAMETERS['%working_dir%']);
-        $this->behatProcess->setCommandLine(
-            sprintf(
+        if (version_compare(Kernel::VERSION, "4.2", "<")) {
+            $command = sprintf(
                 '%s %s %s',
                 $this->phpBin,
                 escapeshellarg(BEHAT_BIN_PATH),
                 $argumentsString
-            )
+            );
+        }
+        else {
+            $command = array_merge(
+                array(
+                    $this->phpBin,
+                    BEHAT_BIN_PATH
+                ),
+                explode(" ", $argumentsString)
+            );
+        }
+
+        $this->behatProcess = new Process(
+            $command,
+            self::$PARAMETERS['%working_dir%'],
+            null,
+            null,
+            $this->behatProcessTimeout
         );
 
         // Don't reset the LANG variable on HHVM, because it breaks HHVM itself
