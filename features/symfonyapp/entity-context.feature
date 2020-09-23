@@ -78,17 +78,16 @@ Feature: Alice Context
           progress:
             paths: false
         extensions:
-          Behat\Symfony2Extension: ~
+          FriendsOfBehat\SymfonyExtension: ~
           Behat\MinkExtension:
-            default_session: 'symfony2'
+            default_session: 'symfony'
             sessions:
-              symfony2:
-                symfony2: ~
+              symfony:
+                symfony: ~
           Knp\FriendlyContexts\Extension: ~
         suites:
           simple:
-            type: symfony_bundle
-            bundle: KnpFcTestBundle
+            paths: ["%paths.base%/src/Knp/FcTestBundle/Features"]
             contexts:
               - FeatureContext: ~
               - Behat\MinkExtension\Context\MinkContext: ~
