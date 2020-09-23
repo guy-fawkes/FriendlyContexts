@@ -2,8 +2,8 @@
 
 namespace spec\Knp\FriendlyContexts\Doctrine;
 
-use Doctrine\Common\Persistence\Mapping\ClassMetadataFactory;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\Mapping\ClassMetadataFactory;
+use Doctrine\Persistence\ObjectManager;
 use Knp\FriendlyContexts\Reflection\ObjectReflector;
 use Knp\FriendlyContexts\Utils\TextFormater;
 use PhpSpec\ObjectBehavior;

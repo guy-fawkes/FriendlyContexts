@@ -56,6 +56,6 @@ before_script:
     - export PATH=./bin:$PATH
 
 script:
-    - phpspec run -fpretty --no-interaction
+    - if [ "$SYMFONY_VERSION" != "~3.4" ]; then phpspec run -fpretty --no-interaction; fi;
     - behat
 
