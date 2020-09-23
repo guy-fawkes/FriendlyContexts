@@ -146,7 +146,7 @@ Feature: Alice Context
         </body>
       </html>
       """
-    When I run "behat --no-colors -f progress"
+    When I run "behat --no-colors --format=progress"
     Then it should pass with:
       """
       ....
@@ -211,7 +211,7 @@ Feature: Alice Context
         </body>
       </html>
       """
-    When I run "behat --no-colors -f progress"
+    When I run "behat --no-colors --format=progress"
     Then it should pass with:
       """
       ......
@@ -271,7 +271,7 @@ Feature: Alice Context
         </body>
       </html>
       """
-    When I run "behat --no-colors -f progress"
+    When I run "behat --no-colors --format=progress"
     Then it should pass with:
       """
       ......
@@ -356,7 +356,7 @@ Feature: Alice Context
         </body>
       </html>
       """
-    When I run "behat --no-colors -f progress"
+    When I run "behat --no-colors --format=progress"
     Then it should pass with:
       """
       ......
@@ -435,7 +435,7 @@ Feature: Alice Context
         </body>
       </html>
       """
-    When I run "behat --no-colors -f progress"
+    When I run "behat --no-colors --format=progress"
     Then it should pass with:
       """
       .....

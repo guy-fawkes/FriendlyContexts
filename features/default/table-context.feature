@@ -76,7 +76,7 @@ Feature: Table Context
           And I should see a table with 4 rows
           And I should see a table with "John, George and Bob" in the "Firstname" column
       """
-    When I run "behat --no-colors -f progress"
+    When I run "behat --no-colors --format=progress"
     Then it should pass with:
       """
       .......

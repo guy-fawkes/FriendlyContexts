@@ -187,7 +187,7 @@ Feature: Entity Context
           Then I should see "Users (2)"
           And I should see "Products (3)"
       """
-    When I run "behat --no-colors -f progress"
+    When I run "behat --no-colors --format=progress"
     Then it should pass with:
       """
       ...
@@ -210,7 +210,7 @@ Feature: Entity Context
           Then I should see "Users (2)"
           And I should see "Products (0)"
       """
-    When I run "behat --no-colors -f progress"
+    When I run "behat --no-colors --format=progress"
     Then it should pass with:
       """
       ...
@@ -233,7 +233,7 @@ Feature: Entity Context
           Then I should see "Users (2)"
           And I should see "Products (3)"
       """
-    When I run "behat --no-colors -f progress"
+    When I run "behat --no-colors --format=progress"
     Then it should pass with:
       """
       ...
