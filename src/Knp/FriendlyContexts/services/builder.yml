@@ -1,41 +1,49 @@
 services:
     friendly.builder.delete_request_builder:
         class: Knp\FriendlyContexts\Builder\DeleteRequestBuilder
+        public: true
         calls:
             - [setClient, ["@friendly.http_client"]]
 
     friendly.builder.get_request_builder:
         class: Knp\FriendlyContexts\Builder\GetRequestBuilder
+        public: true
         calls:
             - [setClient, ["@friendly.http_client"]]
 
     friendly.builder.head_request_builder:
         class: Knp\FriendlyContexts\Builder\HeadRequestBuilder
+        public: true
         calls:
             - [setClient, ["@friendly.http_client"]]
 
     friendly.builder.options_request_builder:
         class: Knp\FriendlyContexts\Builder\OptionsRequestBuilder
+        public: true
         calls:
             - [setClient, ["@friendly.http_client"]]
 
     friendly.builder.patch_request_builder:
         class: Knp\FriendlyContexts\Builder\PatchRequestBuilder
+        public: true
         calls:
             - [setClient, ["@friendly.http_client"]]
 
     friendly.builder.post_request_builder:
         class: Knp\FriendlyContexts\Builder\PostRequestBuilder
+        public: true
         calls:
             - [setClient, ["@friendly.http_client"]]
 
     friendly.builder.put_request_builder:
         class: Knp\FriendlyContexts\Builder\PutRequestBuilder
+        public: true
         calls:
             - [setClient, ["@friendly.http_client"]]
 
     friendly.builder.request_builder:
         class: Knp\FriendlyContexts\Builder\RequestBuilder
+        public: true
         calls:
             - [addRequestBuilder, ["@friendly.builder.delete_request_builder", "DELETE"]]
             - [addRequestBuilder, ["@friendly.builder.get_request_builder", "GET"]]
@@ -47,6 +55,7 @@ services:
 
     friendly.http_client:
         class: Guzzle\Http\Client
+        public: true
         arguments:
-            - %friendly.api.base_url%
+            - "%friendly.api.base_url%"
 

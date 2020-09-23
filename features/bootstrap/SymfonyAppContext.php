@@ -38,6 +38,7 @@ class SymfonyAppContext extends AbstractContext
         self::$filesystem->remove(array(
             self::$PARAMETERS['%working_dir%'] . DIRECTORY_SEPARATOR . "app" . DIRECTORY_SEPARATOR . "cache",
             self::$PARAMETERS['%working_dir%'] . DIRECTORY_SEPARATOR . "features" . DIRECTORY_SEPARATOR . "fixtures",
+            self::$PARAMETERS['%working_dir%'] . DIRECTORY_SEPARATOR . "var",
             $bundlePath . DIRECTORY_SEPARATOR . "Controller",
             $bundlePath . DIRECTORY_SEPARATOR . "Entity",
             $bundlePath . DIRECTORY_SEPARATOR . "Resources",
