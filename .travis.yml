@@ -13,6 +13,7 @@ php:
 
 env:
     - SYMFONY_VERSION=~3.4
+    - SYMFONY_VERSION=~4.4
 
 cache:
     directories:
@@ -20,9 +21,13 @@ cache:
 
 matrix:
     include:
-        php: 7.0
-        env: SYMFONY_VERSION=3.0.* DEPS=low
-
+        - php: 7.0
+          env: SYMFONY_VERSION=3.0.* DEPS=low
+        - php: 7.1
+          env: SYMFONY_VERSION=4.0.* DEPS=low
+    exclude:
+        - php: 7.0
+          env: SYMFYON_VERSION=~4.4
     allow_failures:
         - php: hhvm
 
