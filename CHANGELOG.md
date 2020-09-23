@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 - Support for PHP <=5.5
+- Support for Symfony 2.8
 
 ## [0.8.2] - 2017-19-04
 

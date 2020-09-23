@@ -9,8 +9,6 @@ php:
     - hhvm
 
 env:
-    - SYMFONY_VERSION=~2.8
-    - SYMFONY_VERSION=~2.8 DEPS=low
     - SYMFONY_VERSION=~3.4
     - SYMFONY_VERSION=3.0.* DEPS=low
 
@@ -19,11 +17,6 @@ cache:
         - $HOME/.composer/cache/files
 
 matrix:
-    exclude:
-        - php: 7.0
-          env: SYMFONY_VERSION=~2.8
-        - php: 7.0
-          env: SYMFONY_VERSION=~2.8 DEPS=low
     allow_failures:
         - php: hhvm
 
