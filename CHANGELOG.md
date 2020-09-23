@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
+- Add Support for PHP >=7.0,<7.5
 
 ### Removed
 - Dropped support for PHP 5.6
