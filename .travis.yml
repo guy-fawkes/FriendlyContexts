@@ -13,13 +13,16 @@ php:
 
 env:
     - SYMFONY_VERSION=~3.4
-    - SYMFONY_VERSION=3.0.* DEPS=low
 
 cache:
     directories:
         - $HOME/.composer/cache/files
 
 matrix:
+    include:
+        php: 7.0
+        env: SYMFONY_VERSION=3.0.* DEPS=low
+
     allow_failures:
         - php: hhvm
 
