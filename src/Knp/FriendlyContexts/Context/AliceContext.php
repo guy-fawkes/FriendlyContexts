@@ -2,6 +2,8 @@
 
 namespace Knp\FriendlyContexts\Context;
 
+use Knp\FriendlyContexts\Alice\Fixtures\Alice3\Loader as Alice3Loader;
+
 class AliceContext extends Context
 {
     /**
@@ -36,15 +38,27 @@ class AliceContext extends Context
     {
         $persistable = $this->getPersistableClasses();
 
-        foreach ($fixtures as $id => $fixture) {
-            if (in_array($id, $files)) {
-                foreach ($loader->load($fixture) as $object) {
-                    if (in_array(get_class($object), $persistable)) {
-                        $this->getEntityManager()->persist($object);
-                    }
+        if ($loader instanceof Alice3Loader) {
+            $fileList = array_intersect_key($fixtures, array_flip($files));
+            foreach ($loader->load($fileList) as $object) {
+                if (in_array(get_class($object), $persistable)) {
+                    $this->getEntityManager()->persist($object);
                 }
+            }
 
-                $this->getEntityManager()->flush();
+            $this->getEntityManager()->flush();
+        }
+        else {
+            foreach ($fixtures as $id => $fixture) {
+                if (in_array($id, $files)) {
+                    foreach ($loader->load($fixture) as $object) {
+                        if (in_array(get_class($object), $persistable)) {
+                            $this->getEntityManager()->persist($object);
+                        }
+                    }
+
+                    $this->getEntityManager()->flush();
+                }
             }
         }
     }

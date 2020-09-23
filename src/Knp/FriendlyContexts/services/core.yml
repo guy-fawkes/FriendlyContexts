@@ -17,8 +17,16 @@ services:
             - "@service_container"
             - %friendly.alice.providers%
 
+    friendly.alice.fixtures.loader_factory:
+        class: Knp\FriendlyContexts\Alice\Fixtures\LoaderFactory
+        arguments:
+            - %friendly.alice.locale%
+            - "@friendly.alice.provider_resolver"
+        public: false
+
     friendly.alice.fixtures.loader:
         class: Knp\FriendlyContexts\Alice\Fixtures\Loader
+        factory: ["@friendly.alice.fixtures.loader_factory", "create"]
         arguments:
             - %friendly.alice.locale%
             - "@friendly.alice.provider_resolver"
