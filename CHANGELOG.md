@@ -7,7 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Added
 
-### Fixed
+### Removed
+- Dropped support for PHP 5.6
 
 ## [0.9.0] - 2020-09-23
 
