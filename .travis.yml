@@ -28,6 +28,9 @@ matrix:
         - php: 7.2
           env: SYMFONY_VERSION=5.0.* DEPS=low
     allow_failures:
+        - env: SYMFONY_VERSION=~3.4
+        - php: 7.1
+          env: SYMFONY_VERSION=~3.4 DEPS=low
         - php: 7.1
           env: SYMFONY_VERSION=~5.0
         - php: 7.2
