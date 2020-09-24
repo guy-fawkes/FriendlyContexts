@@ -80,7 +80,11 @@ class AbstractContext implements Context
                 throw new Exception('This test suite cannot run on Windows, contribution in that way would be nice.');
         }
 
-        $this->phantomjs = new Process(__DIR__ . '/../phantomjs/' . $phantomExec . ' --webdriver=4444');
+        $command = array(
+            __DIR__ . '/../phantomjs/' . $phantomExec,
+            '--webdriver=4444'
+        );
+        $this->phantomjs = new Process($command);
         $this->phantomjs->start();
         sleep(1); // PhantomJS takes time to start
     }
@@ -138,7 +142,12 @@ class AbstractContext implements Context
     {
         // Using exec because of PHP limitation
         // See https://bugs.php.net/bug.php?id=39992
-        $this->server = new Process('exec php -S ' . self::$PARAMETERS['%base_host%'] . ' -t ' . self::$PARAMETERS['%working_dir%']);
+        $command = array(
+            'php',
+            '-S',
+            self::$PARAMETERS['%base_host%']
+        );
+        $this->server = new Process($command, self::$PARAMETERS['%working_dir%']);
         $this->server->start();
     }
 
