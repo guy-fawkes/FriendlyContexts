@@ -1,0 +1,4 @@
+## Config for Symfony 5
+#
+imports:
+    - { resource: config.yml }

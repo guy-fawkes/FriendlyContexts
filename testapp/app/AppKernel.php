@@ -20,7 +20,11 @@ class AppKernel extends Kernel
 
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
-        $loader->load($this->getProjectDir() . '/app/config/config_' . $this->getEnvironment() . '.yml');
+        $configFile = 'config3-4.yml';
+        if (version_compare(self::VERSION, "5.0", ">=")) {
+            $configFile = 'config5.yml';
+        }
+        $loader->load($this->getProjectDir() . '/app/config/' . $configFile);
     }
 
     public function getProjectDir()

@@ -1,7 +1,10 @@
+## Common Config for all Symfony versions
+
 parameters:
     locale: en
 
 framework:
+    test: ~
     secret: ThisTokenIsNotSoSecretChangeIts
     assets: true
     router:
@@ -10,9 +13,9 @@ framework:
     form: true
     validation: { enable_annotations: true }
     default_locale: "%locale%"
-    session: ~
-    templating:
-        engines: [ twig ]
+    session:
+        storage_id: session.storage.filesystem
+    profiler: { only_exceptions: false }
 
 # Twig Configuration
 twig:

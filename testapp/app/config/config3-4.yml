@@ -1,0 +1,8 @@
+## Config for Symfony 3 & 4
+#
+imports:
+  - { resource: config.yml }
+
+framework:
+  templating:
+    engines: [ twig ]
