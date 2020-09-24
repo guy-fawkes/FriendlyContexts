@@ -130,9 +130,9 @@ Feature: Entity Context
       <?php
       namespace Knp\FcTestBundle\Controller;
 
+      use Controller\Controller%SYMFONY_SUPPORT% as Controller;
       use Knp\FcTestBundle\Entity\Product;
       use Knp\FcTestBundle\Entity\User;
-      use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
       class DefaultController extends Controller
       {
