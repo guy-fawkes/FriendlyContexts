@@ -18,6 +18,12 @@ class SymfonyAppContext extends AbstractContext
     public function __construct()
     {
         $this->behatProcessTimeout = 60;
+
+        self::$PARAMETERS['%symfony_support%'] = '4';
+        if (version_compare(\Symfony\Component\HttpKernel\Kernel::VERSION, '5', '>=')) {
+            self::$PARAMETERS['%symfony_support%'] = '5';
+        }
+
         parent::__construct();
     }
 
@@ -44,5 +50,12 @@ class SymfonyAppContext extends AbstractContext
             $bundlePath . DIRECTORY_SEPARATOR . "Resources",
             $bundlePath . DIRECTORY_SEPARATOR . "Features",
         ));
+    }
+
+    protected function createFile($filename, $content)
+    {
+        $content = str_replace('%SYMFONY_SUPPORT%', self::$PARAMETERS['%symfony_support%'], $content);
+
+        parent::createFile($filename, $content);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Knp\FriendlyContexts\DependencyInjection\Compiler;
 
+use FriendsOfBehat\SymfonyExtension\ServiceContainer\SymfonyExtension;
 use Symfony\Component\DependencyInjection\Alias;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -14,9 +15,9 @@ class KernelPass implements CompilerPassInterface
         $this->loadFileFromParameter($container, 'friendly.symfony_kernel.bootstrap');
         $this->loadFileFromParameter($container, 'friendly.symfony_kernel.path');
 
-        if ($container->has('symfony2_extension.kernel')) {
+        if ($container->has(SymfonyExtension::KERNEL_ID)) {
             $alias = $container
-                ->setAlias('friendly.symfony.kernel', 'symfony2_extension.kernel')
+                ->setAlias('friendly.symfony.kernel', SymfonyExtension::KERNEL_ID)
             ;
             if ( ! $alias instanceof Alias) {
                 $alias = $container->getAlias('friendly.symfony.kernel');

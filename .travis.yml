@@ -13,6 +13,7 @@ php:
 env:
     - SYMFONY_VERSION=~3.4
     - SYMFONY_VERSION=~4.4
+    - SYMFONY_VERSION=~5.0
 
 cache:
     directories:
@@ -21,10 +22,19 @@ cache:
 matrix:
     include:
         - php: 7.1
-          env: SYMFONY_VERSION=3.0.* DEPS=low
+          env: SYMFONY_VERSION=~3.4 DEPS=low
         - php: 7.1
           env: SYMFONY_VERSION=4.0.* DEPS=low
+        - php: 7.2
+          env: SYMFONY_VERSION=5.0.* DEPS=low
     allow_failures:
+        - env: SYMFONY_VERSION=~3.4
+        - php: 7.1
+          env: SYMFONY_VERSION=~3.4 DEPS=low
+        - php: 7.1
+          env: SYMFONY_VERSION=~5.0
+        - php: 7.2
+          env: SYMFONY_VERSION=5.0.* DEPS=low
         - php: 7.1
           env: SYMFONY_VERSION=4.0.* DEPS=low
         - php: hhvm
@@ -49,6 +59,6 @@ before_script:
     - export PATH=./bin:$PATH
 
 script:
-    - phpspec run -fpretty --no-interaction
+    - if [ "$SYMFONY_VERSION" != "~3.4" ]; then phpspec run -fpretty --no-interaction; fi;
     - behat
 

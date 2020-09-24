@@ -78,17 +78,16 @@ Feature: Alice Context
           progress:
             paths: false
         extensions:
-          Behat\Symfony2Extension: ~
+          FriendsOfBehat\SymfonyExtension: ~
           Behat\MinkExtension:
-            default_session: 'symfony2'
+            default_session: 'symfony'
             sessions:
-              symfony2:
-                symfony2: ~
+              symfony:
+                symfony: ~
           Knp\FriendlyContexts\Extension: ~
         suites:
           simple:
-            type: symfony_bundle
-            bundle: KnpFcTestBundle
+            paths: ["%paths.base%/src/Knp/FcTestBundle/Features"]
             contexts:
               - FeatureContext: ~
               - Behat\MinkExtension\Context\MinkContext: ~
@@ -118,8 +117,8 @@ Feature: Alice Context
       <?php
       namespace Knp\FcTestBundle\Controller;
 
+      use Controller\Controller%SYMFONY_SUPPORT% as Controller;
       use Knp\FcTestBundle\Entity\User;
-      use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
       class DefaultController extends Controller
       {
@@ -183,8 +182,8 @@ Feature: Alice Context
       <?php
       namespace Knp\FcTestBundle\Controller;
 
+      use Controller\Controller%SYMFONY_SUPPORT% as Controller;
       use Knp\FcTestBundle\Entity\Product;
-      use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
       class DefaultController extends Controller
       {
@@ -245,9 +244,9 @@ Feature: Alice Context
       <?php
       namespace Knp\FcTestBundle\Controller;
 
+      use Controller\Controller%SYMFONY_SUPPORT% as Controller;
       use Knp\FcTestBundle\Entity\Product;
       use Knp\FcTestBundle\Entity\User;
-      use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
       class DefaultController extends Controller
       {
@@ -305,8 +304,8 @@ Feature: Alice Context
       <?php
       namespace Knp\FcTestBundle\Controller;
 
+      use Controller\Controller%SYMFONY_SUPPORT% as Controller;
       use Knp\FcTestBundle\Entity\User;
-      use Symfony\Bundle\FrameworkBundle\Controller\Controller;
       use Symfony\Component\Form\Extension\Core\Type\SubmitType;
       use Symfony\Component\Form\Extension\Core\Type\TextType;
       use Symfony\Component\HttpFoundation\Request;
@@ -388,8 +387,8 @@ Feature: Alice Context
       <?php
       namespace Knp\FcTestBundle\Controller;
 
+      use Controller\Controller%SYMFONY_SUPPORT% as Controller;
       use Knp\FcTestBundle\Entity\User;
-      use Symfony\Bundle\FrameworkBundle\Controller\Controller;
       use Symfony\Component\HttpFoundation\Request;
 
       class DefaultController extends Controller

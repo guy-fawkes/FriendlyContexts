@@ -78,12 +78,12 @@ Feature: Entity Context
           progress:
             paths: false
         extensions:
-          Behat\Symfony2Extension: ~
+          FriendsOfBehat\SymfonyExtension: ~
           Behat\MinkExtension:
-            default_session: 'symfony2'
+            default_session: 'symfony'
             sessions:
-              symfony2:
-                symfony2: ~
+              symfony:
+                symfony: ~
           Knp\FriendlyContexts\Extension:
             alice:
               fixtures:
@@ -93,8 +93,7 @@ Feature: Entity Context
                 Products: [Users]
         suites:
           simple:
-            type: symfony_bundle
-            bundle: KnpFcTestBundle
+            paths: ["%paths.base%/src/Knp/FcTestBundle/Features"]
             contexts:
               - FeatureContext: ~
               - Behat\MinkExtension\Context\MinkContext: ~
@@ -131,9 +130,9 @@ Feature: Entity Context
       <?php
       namespace Knp\FcTestBundle\Controller;
 
+      use Controller\Controller%SYMFONY_SUPPORT% as Controller;
       use Knp\FcTestBundle\Entity\Product;
       use Knp\FcTestBundle\Entity\User;
-      use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
       class DefaultController extends Controller
       {

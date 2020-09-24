@@ -3,13 +3,16 @@
 namespace Knp\FriendlyContexts\Doctrine;
 
 use Doctrine\Common\Inflector\Inflector;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Common\Persistence\ObjectManager as CommonObjectManager;
 use Doctrine\ORM\Mapping\ClassMetadata;
+use Doctrine\Persistence\ObjectManager;
 use Knp\FriendlyContexts\Reflection\ObjectReflector;
 use Knp\FriendlyContexts\Utils\TextFormater;
 
 class EntityResolver
 {
+    use ValidateObjectManager;
+
     const CASE_CAMEL      = 'CamelCase';
     const CASE_UNDERSCORE = 'UnderscoreCase';
 
@@ -22,7 +25,13 @@ class EntityResolver
         $this->formater  = $formater;
     }
 
-    public function resolve(ObjectManager $entityManager, $name, $namespaces = '')
+    /**
+     * @param CommonObjectManager|ObjectManager $entityManager
+     * @param string $name
+     * @param string $namespaces
+     * @return array|void
+     */
+    public function resolve($entityManager, $name, $namespaces = '')
     {
         $results = [];
 
@@ -40,8 +49,17 @@ class EntityResolver
         return $results;
     }
 
-    protected function getClassesFromName(ObjectManager $entityManager, $name, $namespace, array $results = [])
+    /**
+     * @param CommonObjectManager|ObjectManager $entityManager
+     * @param string $name
+     * @param string $namespace
+     * @param array $results
+     * @return array
+     */
+    protected function getClassesFromName($entityManager, $name, $namespace, array $results = [])
     {
+        $this->assertIsObjectManager($entityManager);
+
         if (!empty($results)) {
 
             return $results;
@@ -67,7 +85,13 @@ class EntityResolver
         return $results;
     }
 
-    public function getMetadataFromProperty(ObjectManager $entityManager, $entity, $property)
+    /**
+     * @param CommonObjectManager|ObjectManager $entityManager
+     * @param object $entity
+     * @param string $property
+     * @return false|mixed|null
+     */
+    public function getMetadataFromProperty($entityManager, $entity, $property)
     {
         $metadata = $this->getMetadataFromObject($entityManager, $entity);
 
@@ -89,8 +113,15 @@ class EntityResolver
         );
     }
 
-    public function getMetadataFromObject(ObjectManager $entityManager, $object)
+    /**
+     * @param CommonObjectManager|ObjectManager $entityManager
+     * @param object $object
+     * @return \Doctrine\Persistence\Mapping\ClassMetadata
+     */
+    public function getMetadataFromObject($entityManager, $object)
     {
+        $this->assertIsObjectManager($entityManager);
+
         return $entityManager
             ->getMetadataFactory()
             ->getMetadataFor(get_class($object)
@@ -138,6 +169,23 @@ class EntityResolver
         }
 
         return null;
+    }
+
+    /**
+     * @param CommonObjectManager|ObjectManager $entityManager
+     */
+    protected function assertIsObjectManager($entityManager)
+    {
+        $class = interface_exists('\Doctrine\Persistence\ObjectManager')
+            ? ObjectManager::class
+            : CommonObjectManager::class
+        ;
+        if ( ! is_a($entityManager, $class)) {
+            throw new \InvalidArgumentException(sprintf(
+                "\$entityManager must be an instance of %s",
+                $class
+            ));
+        }
     }
 
 }
