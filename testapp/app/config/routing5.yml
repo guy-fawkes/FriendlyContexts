@@ -1,0 +1,3 @@
+test:
+    path:  /
+    controller: Knp\FcTestBundle\Controller\DefaultController::indexAction

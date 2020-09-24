@@ -3,6 +3,10 @@
 imports:
     - { resource: config.yml }
 
+framework:
+    router:
+        resource: "%kernel.root_dir%/config/routing5.yml"
+
 services:
     # default configuration for services in *this* file
     _defaults:

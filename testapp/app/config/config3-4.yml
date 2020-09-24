@@ -4,5 +4,7 @@ imports:
   - { resource: config.yml }
 
 framework:
+  router:
+    resource: "%kernel.root_dir%/config/routing3-4.yml"
   templating:
     engines: [ twig ]
