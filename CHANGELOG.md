@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
-## [0.9.1] - 2020-09-25
+## [0.9.1, 0.10.1] - 2020-09-25
 ### Changed
 - `guzzle\guzzle` is now a dev dependency.
 
