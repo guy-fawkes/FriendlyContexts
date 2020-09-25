@@ -23,6 +23,7 @@ matrix:
 branches:
     only:
         - master
+        - /^release\/.*$/
 
 before_install:
     - composer self-update
