@@ -5,10 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
-### Change
-- `guzzle\guzzle` is now a dev dependency.
+### Changed
 
 ### Fixed
+
+## [0.9.1] - 2020-09-25
+### Changed
+- `guzzle\guzzle` is now a dev dependency.
 
 ## [0.9.0] - 2020-09-23
 
