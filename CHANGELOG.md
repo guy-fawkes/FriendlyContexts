@@ -5,10 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
-### Fixed
-- Fixed ability to associate inline entities with those created with Alice v3 via AliceContext.
+### Added
 
 ### Removed
+
+## [0.10.2] - 2020-10-01
+### Fixed
+- Fixed ability to associate inline entities with those created with Alice v3 via AliceContext.
 
 ## [0.9.1, 0.10.1] - 2020-09-25
 ### Changed
