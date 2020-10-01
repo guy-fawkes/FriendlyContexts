@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [0.10.3] - 2020-10-01
+### Fixed
+- Removed debug output used for investigating Alice issue which was fixed in 0.10.2.
+
 ## [0.10.2] - 2020-10-01
 ### Fixed
 - Fixed ability to associate inline entities with those created with Alice v3 via AliceContext.
