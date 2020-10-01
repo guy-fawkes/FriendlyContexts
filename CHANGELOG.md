@@ -21,6 +21,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Dropped support for PHP 7.0
 - Dropped support for Symfony <3.4
 
+## [0.10.3] - 2020-10-01
+### Fixed
+- Another fix for associating Alice v3 created entities with inline entities from EntityContext
+- Removed debug output used for investigating Alice issue which was fixed in 0.10.2.
+
 ## [0.10.2] - 2020-10-01
 ### Fixed
 - Fixed ability to associate inline entities with those created with Alice v3 via AliceContext.

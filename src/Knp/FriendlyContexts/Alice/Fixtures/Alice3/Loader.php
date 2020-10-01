@@ -4,6 +4,7 @@ namespace Knp\FriendlyContexts\Alice\Fixtures\Alice3;
 
 use Knp\FriendlyContexts\Alice\Fixtures\Loader as LoaderInterface;
 use Nelmio\Alice\DataLoaderInterface;
+use Nelmio\Alice\Definition\Property;
 use Nelmio\Alice\FilesLoaderInterface;
 use Nelmio\Alice\FixtureInterface;
 use Nelmio\Alice\FixtureSet;
@@ -42,8 +43,9 @@ class Loader extends NativeLoader implements
             $spec = array();
 
             $properties = $fixture->getSpecs()->getProperties();
+            /** @var Property $property */
             foreach ($properties->getIterator() as $property) {
-                $spec[] = $property->getValue();
+                $spec[ $property->getName() ] = $property->getValue();
             }
 
             $cache[] = array($spec, $this->objects[$fixture->getId()]);
