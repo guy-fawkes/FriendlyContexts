@@ -78,20 +78,19 @@ Feature: Alice and Entity Context
           progress:
             paths: false
         extensions:
-          Behat\Symfony2Extension: ~
+          FriendsOfBehat\SymfonyExtension: ~
           Behat\MinkExtension:
-            default_session: 'symfony2'
+            default_session: 'symfony'
             sessions:
-              symfony2:
-                symfony2: ~
+              symfony:
+                symfony: ~
           Knp\FriendlyContexts\Extension:
             alice:
               fixtures:
                 Users: features/fixtures/users.yml
         suites:
           simple:
-            type: symfony_bundle
-            bundle: KnpFcTestBundle
+            paths: ["%paths.base%/src/Knp/FcTestBundle/Features"]
             contexts:
               - FeatureContext: ~
               - Behat\MinkExtension\Context\MinkContext: ~
@@ -134,8 +133,8 @@ Feature: Alice and Entity Context
       <?php
       namespace Knp\FcTestBundle\Controller;
 
+      use Controller\Controller%SYMFONY_SUPPORT% as Controller;
       use Knp\FcTestBundle\Entity\Product;
-      use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
       class DefaultController extends Controller
       {
@@ -162,7 +161,7 @@ Feature: Alice and Entity Context
         </body>
       </html>
       """
-    When I run "behat -vvv --no-colors -f progress"
+    When I run "behat --no-colors -f progress"
     Then it should pass with:
       """
       .....
