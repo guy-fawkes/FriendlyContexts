@@ -46,7 +46,9 @@ class DataLoader implements DataLoaderInterface
      */
     public function loadData(array $data, array $parameters = array(), array $objects = array()) : ObjectSet
     {
+        echo "Data is loaded\n";
         $this->lastFixtureSet = $this->builder->build($data, $parameters, $objects);
+        var_dump(get_class($this->lastFixtureSet));
         return $this->generator->generate($this->lastFixtureSet);
     }
 

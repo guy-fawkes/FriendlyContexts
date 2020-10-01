@@ -21,6 +21,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Dropped support for PHP 7.0
 - Dropped support for Symfony <3.4
 
+## [0.10.2] - 2020-10-01
+### Fixed
+- Fixed ability to associate inline entities with those created with Alice v3 via AliceContext.
+
+## [0.9.1, 0.10.1] - 2020-09-25
+### Changed
+- `guzzle\guzzle` is now a dev dependency.
+
 ## [0.10.0] - 2020-09-23
 ### Added
 - Add Support for PHP >=7.0,<7.5
