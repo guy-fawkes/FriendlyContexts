@@ -162,7 +162,7 @@ Feature: Alice and Entity Context
         </body>
       </html>
       """
-    When I run "behat --no-colors -f progress"
+    When I run "behat -vvv --no-colors -f progress"
     Then it should pass with:
       """
       .....
