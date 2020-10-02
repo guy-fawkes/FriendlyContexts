@@ -1,7 +1,6 @@
 language: php
-
-jobs:
-    fast_finish: true
+dist: xenial
+os: linux
 
 php:
     - 7.0
@@ -19,7 +18,8 @@ cache:
     directories:
         - $HOME/.composer/cache/files
 
-matrix:
+jobs:
+    fast_finish: true
     include:
         - php: 7.0
           env: SYMFONY_VERSION=3.0.* DEPS=low
