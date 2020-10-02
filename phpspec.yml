@@ -1,1 +1,2 @@
 extensions: ~
+bootstrap: spec/bootstrap.php
